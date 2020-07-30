@@ -3,10 +3,11 @@
 import pandas as pd
 import numpy as np
 
-
+# Set the working directory as well as the names and 
+# number of mesh files in each folder
 root_folder = r"C:\Users\jamen\Google Drive\Everything\Results\P1 Model\OvenMeshIndy\\"
-meshes = [["Mesh1",0,60]]
-areas = ["Food","Inlet","Outlet","Walls"]
+meshes = [["Mesh1",0,60]] # name, first timestep, final timestep
+areas = ["Food","Inlet","Outlet","Walls"] # prefix for each filename
 
 alldata = []
 
