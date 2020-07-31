@@ -1,4 +1,4 @@
-"""Loads all the mesh data and saves it in a tidy table in csv form"""
+"""Loads all the mesh data and saves it in a tidy table in feather form"""
 
 import pandas as pd
 import numpy as np
@@ -6,7 +6,7 @@ import numpy as np
 # Set the working directory as well as the names and 
 # number of mesh files in each folder
 root_folder = r"C:\Users\jamen\Google Drive\Everything\Results\P1 Model\OvenMeshIndy\\"
-meshes = [["Mesh1",0,60]] # name, first timestep, final timestep
+meshes = [["Mesh1",0,60,1]] # name, first timestep, final timestep, timestep
 areas = ["Food","Inlet","Outlet","Walls"] # prefix for each filename
 
 alldata = []
@@ -18,7 +18,7 @@ for mesh in meshes:
         for area in areas:
             filename = folder+"\\"+area+str(timestep)+".csv"
             df = pd.read_csv(filename,header=3,error_bad_lines=False)
-            df["timestep"] = timestep
+            df["time"] = timestep*mesh[3]
             df["area"] = area
             df["mesh"] = mesh[0]
             alldata.append(df)
@@ -33,8 +33,10 @@ column_names = {"X [ m ]":"x",
 " Velocity w [ m s^-1 ]":"w",
 " Pressure [ Pa ]":"P"
 }
+
 alldata = alldata.rename(columns=column_names)
-alldata.to_csv(root_folder+"alldata.csv")
+alldata = alldata.reset_index()
+alldata.to_feather(root_folder+"alldata.feather")
 
 
 
