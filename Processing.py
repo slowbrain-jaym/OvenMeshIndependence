@@ -26,6 +26,7 @@ alldata = pd.concat(alldata)
 column_names = {"X [ m ]":"x",
 " Y [ m ]":"y",
 " Z [ m ]":"z",
+" Temperature [ K ]":"T",
 " Wall Heat Flux [ W m^-2 ]":"flux",
 " Wall Heat Transfer Coefficient [ W m^-2 K^-1 ]":"HTC",
 " Velocity u [ m s^-1 ]":"u",
