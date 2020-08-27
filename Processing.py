@@ -6,7 +6,9 @@ import numpy as np
 # Set the working directory as well as the names and 
 # number of mesh files in each folder
 root_folder = r"C:\Users\jamen\Google Drive\Everything\Results\P1 Model\OvenMeshIndy\\"
-meshes = [["Mesh0",0,60,1],["Mesh1",0,60,1],["Mesh2",0,60,1],["Mesh3",0,60,1],["Mesh4",0,60,1],["Mesh5",0,60,1],["Mesh6",0,60,1]] # name, first timestep, final timestep, timestep
+meshes = [["Mesh0",0,60,1],["Mesh1",0,60,1],["Mesh2",0,60,1],["Mesh3",0,60,1],
+["Mesh4",0,60,1],["Mesh5",0,60,1],["Mesh6",0,60,1],["Mesh7",0,60,1]] 
+# name, first timestep, final timestep, timestep
 areas = ["Food","Inlet","Outlet","Walls"] # prefix for each filename
 
 meshdata_file = "OvenMeshIndi.xlsx"
@@ -38,8 +40,13 @@ column_names = {"X [ m ]":"x",
 " Pressure [ Pa ]":"P"
 }
 
+#print(meshdata.columns)
+
 alldata = alldata.rename(columns=column_names)
 alldata = pd.merge(alldata, meshdata, on="mesh")
+
+#print(alldata.columns)
+
 alldata = alldata.reset_index()
 alldata.to_feather(root_folder+"alldata.feather")
 
