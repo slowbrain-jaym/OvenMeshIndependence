@@ -7,7 +7,7 @@ import numpy as np
 # number of mesh files in each folder
 root_folder = r"C:\Users\jamen\Google Drive\Everything\Results\P1 Model\OvenMeshIndy\\"
 meshes = [["Mesh0",0,60,1],["Mesh1",0,60,1],["Mesh2",0,60,1],["Mesh3",0,60,1],
-["Mesh4",0,60,1],["Mesh5",0,60,1],["Mesh6",0,60,1],["Mesh7",0,60,1]] 
+["Mesh4",0,60,1],["Mesh5",0,60,1],["Mesh6",0,60,1],["Mesh7",0,60,1],["Mesh8",0,60,1]] 
 # name, first timestep, final timestep, timestep
 areas = ["Food","Inlet","Outlet","Walls"] # prefix for each filename
 
